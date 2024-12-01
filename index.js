@@ -38,9 +38,7 @@ let lastId = 3;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//Write your code here//
 
-//CHALLENGE 1: GET All posts
 app.get("/posts", (req, res) => {
   try{
     res.json(posts);
@@ -49,7 +47,6 @@ app.get("/posts", (req, res) => {
   }
 })
 
-//CHALLENGE 2: GET a specific post by id
 app.get("/posts/:id", (req, res) => {
   try{
     const id = parseInt(req.params.id);
@@ -61,7 +58,6 @@ app.get("/posts/:id", (req, res) => {
   }
 })
 
-//CHALLENGE 3: POST a new post
 app.post("/posts", (req, res) =>  {
   try{
 
@@ -83,7 +79,6 @@ app.post("/posts", (req, res) =>  {
   }
 })
 
-//CHALLENGE 4: PATCH a post when you just want to update one parameter
 app.patch("/posts/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const post = posts.find((post) => post.id === id);
@@ -96,7 +91,6 @@ app.patch("/posts/:id", (req, res) => {
   res.json(post);
 });
 
-//CHALLENGE 5: DELETE a specific post by providing the post id.
 app.delete("/posts/:id", (req, res) => {
   const id = parseInt(req.params.id);
   if (id > posts.length || id < 0) return res.status(404).json({message: "Not found."});
